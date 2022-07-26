@@ -9,14 +9,14 @@ function App() {
   const getCountries = () => {
     setIsLoading(true);
     fetch(
-      `http://universities.hipolabs.com/search${
-        searchName ? `?name=${searchName}` : ""
+      `http://universities.hipolabs.com/search?country=France${
+        searchName ? `&name=${searchName}` : ""
       }`
     ).then((res) => {
       res
         .json()
         .then((data) => {
-          setData(data.slice(0, 9));
+          setData(data);
         })
         .finally(() => {
           setIsLoading(false);
